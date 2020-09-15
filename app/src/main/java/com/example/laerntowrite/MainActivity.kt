@@ -4,51 +4,66 @@ import android.content.Context
 import android.media.AudioManager
 import android.media.SoundPool
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    private val words : Array<String> = startList()
-    private var wordSelect= words[(0..5).random()]
-    private val soundapool= SoundPool(1, AudioManager.STREAM_MUSIC, 1)
-    private var sonido : Int=0
+    private lateinit var words : Array<String>
+    private lateinit var wordSelect:String
+    private lateinit var mtts:TextToSpeech
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        iniciador()
 
 
-        var soundId: Int = getIdRaw(wordSelect)
-
-        sonido=soundapool.load(baseContext, soundId, 1)
-        var repB = findViewById<ImageButton>(R.id.button_rep)
-        repB.setOnClickListener {
-            soundapool.play(sonido, 1.0F, 1.0F, 1, 0, 1.0F)
+        button_rep.setOnClickListener {
+            mtts.speak(wordSelect, TextToSpeech.QUEUE_FLUSH, null,null)
         }
 
-        val miText= findViewById<TextView>(R.id.texto)
-        miText.text=wordSelect
-        val boton =findViewById<Button>(R.id.buttontext)
-        boton.setOnClickListener {
-            val nevotext=findViewById<EditText>(R.id.inputtext)
-            if(nevotext.text.toString() == miText.text.toString()){
-                Toast.makeText(this, "correcto", Toast.LENGTH_SHORT).show()
+        buttontext.setOnClickListener {
+            buttontext.requestFocus()
+            if(inputtext.text.toString() == wordSelect){
+
+                Snackbar.make(contraind,"correcto",Snackbar.LENGTH_SHORT).show()
+                clearandselect()
             }else {
-                Toast.makeText(this, "incorrecto", Toast.LENGTH_SHORT).show()
+                Snackbar.make(contraind,"incorrecto",Snackbar.LENGTH_SHORT).show()
+                clearandselect()
             }
         }
     }
 
+    private fun clearandselect() {
+        inputtext.text.clear()
+        selectWord()
+    }
+
+    private fun iniciador() {
+        //inicio de TextToSpeech
+        mtts = TextToSpeech(applicationContext, TextToSpeech.OnInitListener { status ->
+            if (status != TextToSpeech.ERROR) {
+                //locale segun ISO
+                mtts.language = Locale("es", "ES")
+            }
+        })
+        startList()
+        selectWord()
+    }
 
 
-    private fun startList():Array<String>{
+    private fun startList(){
         //inicia lista
-        return arrayOf("marciano", "pedro", "lobo", "arbol", "naranja")
+        words= arrayOf("marciano", "pedro", "lobo", "arbol", "naranja")
 
     }
 
-    private fun getIdRaw(name: String?): Int {
-        //retorna id generado por R.java de la carpeta Raw,pasando el nombre
-        return this.resources.getIdentifier(name, "raw", this.packageName)
+    private fun selectWord(){
+        wordSelect=words[(0..5).random()]
     }
 }

@@ -5,19 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DDDCEF"
+    android:id="@+id/contraind"
     tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/texto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/Prueba"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.403" />
 
     <EditText
         android:id="@+id/inputtext"
@@ -30,14 +19,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texto"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/button_rep" />
 
     <Button
         android:id="@+id/buttontext"
         android:layout_width="225dp"
         android:layout_height="64dp"
-        android:layout_marginBottom="248dp"
+        android:layout_marginBottom="304dp"
         android:background="#03A9F4"
         android:backgroundTintMode="screen"
         android:text="@string/Comprobar"
@@ -45,7 +33,6 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
         app:layout_constraintVertical_bias="0.141" />
@@ -54,14 +41,14 @@
         android:id="@+id/button_rep"
         android:layout_width="188dp"
         android:layout_height="127dp"
+        android:layout_marginTop="56dp"
         android:backgroundTint="#448AFF"
         android:soundEffectsEnabled="false"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/texto"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.706"
         app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
 
 
