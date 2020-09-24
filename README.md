@@ -1,5 +1,6 @@
 # LearnToWrite
 <h2>Aplicacion para niños, para aprender a escribir lo que escucha</h2>
+<p>Lista de palabras no modificable, usando la libreria TextToSpeech</p>
 <img src="imagenes/Screenshot_1600985417.png" width=200>
 <h2>no se puede comprabar si no se ha ingresado una palabra</h2>
 <img src="imagenes/Screenshot_1600985431.png" width=200>
