@@ -11,45 +11,34 @@
     <EditText
         android:id="@+id/inputtext"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="360dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/input"
         android:hint="@string/QPalabra"
+        android:maxLength="15"
+        android:singleLine="true"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_rep" />
 
     <Button
         android:id="@+id/buttontext"
-        android:layout_width="225dp"
-        android:layout_height="64dp"
-        android:layout_marginBottom="304dp"
-        android:background="#03A9F4"
-        android:backgroundTintMode="screen"
+        style="@style/btn_conf"
+        android:layout_marginTop="56dp"
         android:text="@string/Comprobar"
-        android:textColor="#448AFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintVertical_bias="0.141" />
+        app:layout_constraintTop_toBottomOf="@+id/inputtext" />
 
     <ImageButton
         android:id="@+id/button_rep"
-        android:layout_width="188dp"
-        android:layout_height="127dp"
+        style="@style/btn_rep"
         android:layout_marginTop="56dp"
-        android:backgroundTint="#448AFF"
-        android:soundEffectsEnabled="false"
-        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
