@@ -16,10 +16,21 @@
     </style>
 
     <style name="btn_conf" parent="btn_rep">
-        <item name="android:layout_width">225dp</item>
-        <item name="android:layout_height">64dp</item>
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">50dp</item>
         <item name="android:textColor">@color/colorBlanco</item>
         <item name="android:textSize">25dp</item>
+    </style>
+
+    <style name="btn_low" parent="btn_rep">
+        <item name="srcCompat">@android:drawable/ic_menu_manage</item>
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">30dp</item>
+    </style>
+    <style name="btn_retry" parent="btn_rep">
+        <item name="srcCompat">@android:drawable/ic_menu_revert</item>
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">30dp</item>
     </style>
 
 </resources>

@@ -3,4 +3,7 @@
     <string name="QPalabra">Que palabra escuchaste</string>
     <string name="Prueba">Prueba de palabra</string>
     <string name="Comprobar">Comprobar</string>
+    <string name="sound">sonido</string>
+    <string name="word">word</string>
+    <string name="text_list">Mis Palabras</string>
 </resources>

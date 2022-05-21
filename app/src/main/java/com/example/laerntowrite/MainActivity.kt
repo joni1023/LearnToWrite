@@ -18,7 +18,7 @@ import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
     private lateinit var words : ArrayList<String>
-    private lateinit var wordSelect:String
+    private  var wordSelect:String=""
     private lateinit var mtts:TextToSpeech
 
 
@@ -93,7 +93,12 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         val mypref= this.getSharedPreferences("sa",Context.MODE_PRIVATE)
-        var listaset =mypref.getStringSet("setlist", mutableSetOf("banana","manzana"))
+        var listaset =mypref.getStringSet("setlist", mutableSetOf())
+        if (listaset!!.isEmpty()){
+            val intent = Intent(this@MainActivity, addWordActivity::class.java)
+            startActivity(intent)
+            Toast.makeText(this, "lista vacia", Toast.LENGTH_SHORT).show()
+        }
         listaset?.forEach {
                 a -> words.add(a)
         }
@@ -148,6 +153,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun selectWord(){
-        wordSelect=words.random()
+        while (true){
+            var newword=words.random()
+            if( newword != wordSelect){
+                wordSelect=newword
+                break
+            }
+        }
+
     }
 }
